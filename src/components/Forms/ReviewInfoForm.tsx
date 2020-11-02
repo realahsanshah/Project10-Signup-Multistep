@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { useSelector, RootStateOrAny } from 'react-redux';
-import { Typography } from '@material-ui/core';
+import {Grid, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core'
 
 export interface ReviewInfoFormProps {
     submit: any
@@ -11,7 +12,7 @@ export interface ReviewInfoFormProps {
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: '100%',
+            flexGrow:1,
         },
         backButton: {
             marginRight: theme.spacing(1),
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginTop: theme.spacing(1),
             marginBottom: theme.spacing(1),
         },
+
     }),
 );
 
@@ -29,14 +31,19 @@ const ReviewInfoForm: React.SFC<ReviewInfoFormProps> = ({ submit }) => {
 
     return (
         <div>
-            <div>
-                <Typography variant="h4">Review Your Data</Typography>
-                <Typography variant="h6">First Name: {firstname}</Typography>
-                <Typography variant="h6">Last Name: {lastname}</Typography>
-                <Typography variant="h6">Age: {age}</Typography>
-                <Typography variant="h6">E-Mail: {email}</Typography>
-                <Typography variant="h6">Phone: {phone}</Typography>
-
+            <div className={classes.root}>
+                <Grid container  alignItems="center" justify="center" xs={12}>
+                <Grid item xs={12} sm={4}>
+                    <Paper elevation={3} >
+                        <Typography variant="h4">Review Your Data</Typography>
+                        <Typography variant="h6" align="left">First Name: {firstname}</Typography>
+                        <Typography variant="h6" align="left">Last Name: {lastname}</Typography>
+                        <Typography variant="h6" align="left">Age: {age}</Typography>
+                        <Typography variant="h6" align="left">E-Mail: {email}</Typography>
+                        <Typography variant="h6" align="left">Phone: {phone}</Typography>
+                    </Paper>
+                </Grid>
+                </Grid>
             </div>
             <div>
                 <Button
