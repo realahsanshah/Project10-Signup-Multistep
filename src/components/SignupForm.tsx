@@ -3,8 +3,8 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+// import Button from '@material-ui/core/Button';
+// import Typography from '@material-ui/core/Typography';
 import PersonalInfoForm from './Forms/PersonalInfoForm';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,13 +23,13 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function getSteps() {
-  return ['Select master blaster campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Add Personal Information', 'Create an ad group', 'Create an ad'];
 }
 
-function getStepContent(stepIndex: number) {
+function getStepContent(stepIndex: number,setStep:any) {
   switch (stepIndex) {
     case 0:
-      return <PersonalInfoForm />;
+      return <PersonalInfoForm submit={setStep}/>;
     case 1:
       return 'What is an ad group anyways?';
     case 2:
@@ -44,17 +44,17 @@ export default function SignupForm() {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  // const handleNext = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  // };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  // const handleBack = () => {
+  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  // };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
+  // const handleReset = () => {
+  //   setActiveStep(0);
+  // };
 
   return (
     <div className={classes.root}>
@@ -65,7 +65,7 @@ export default function SignupForm() {
           </Step>
         ))}
       </Stepper>
-      <div>
+      {/* <div>
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>All steps completed</Typography>
@@ -89,6 +89,12 @@ export default function SignupForm() {
           </div>
         )}
       </div>
+     */}
+
+     {
+       getStepContent(activeStep,setActiveStep)
+     }
+    
     </div>
   );
 }
