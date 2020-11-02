@@ -43,8 +43,6 @@ const ContactInfoForm: React.SFC<ContactInfoFormProps> = ({ submit }) => {
                         .min(4, "Must be greater than or equals to 4 characters"),
                     phone: Yup.string()
                         .required("Phone Number is required")
-                        // .max(11, "Must be of 11 numbers")
-                        // .min(11, "Must be of 11 numbers"),
                 })}
 
                 onSubmit={(values) => {

@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
 const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
     const classes=useStyles();
     const { firstname, lastname, age } = useSelector((state: RootStateOrAny) => state)
-
     const dispatch = useDispatch();
 
     return (

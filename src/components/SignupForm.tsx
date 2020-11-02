@@ -3,10 +3,13 @@ import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-// import Button from '@material-ui/core/Button';
-// import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import PersonalInfoForm from './Forms/PersonalInfoForm';
 import ContactInfoForm from './Forms/ContactInfoForm';
+import ReviewInfoForm from './Forms/ReviewInfoForm';
+import { useDispatch } from 'react-redux';
+import {resetState} from '../store/UserSlice';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,9 +37,9 @@ function getStepContent(stepIndex: number,setStep:any) {
     case 1:
       return <ContactInfoForm submit={setStep} />;
     case 2:
-      return 'This is the bit I really care about!';
+      return <ReviewInfoForm submit={setStep} /> ;
     default:
-      return 'Unknown stepIndex';
+      return <></>;
   }
 }
 
@@ -44,18 +47,12 @@ export default function SignupForm() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
+  const dispatch = useDispatch();
 
-  // const handleNext = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  // };
 
-  // const handleBack = () => {
-  //   setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  // };
-
-  // const handleReset = () => {
-  //   setActiveStep(0);
-  // };
+  const handleReset = () => {
+    dispatch(resetState());
+  };
 
   return (
     <div className={classes.root}>
@@ -66,7 +63,7 @@ export default function SignupForm() {
           </Step>
         ))}
       </Stepper>
-      {/* <div>
+     <div>
         {activeStep === steps.length ? (
           <div>
             <Typography className={classes.instructions}>All steps completed</Typography>
@@ -74,7 +71,7 @@ export default function SignupForm() {
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+            {/* <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
             <div>
               <Button
                 disabled={activeStep === 0}
@@ -86,11 +83,10 @@ export default function SignupForm() {
               <Button variant="contained" color="primary" onClick={handleNext}>
                 {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
               </Button>
-            </div>
+            </div> */}
           </div>
         )}
       </div>
-     */}
 
      {
        getStepContent(activeStep,setActiveStep)

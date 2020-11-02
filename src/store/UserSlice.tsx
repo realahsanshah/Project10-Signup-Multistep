@@ -28,9 +28,13 @@ const UserSlice=createSlice({
         addPhone:(state,action)=>{
             state.phone=action.payload
         },
+        resetState:(state)=>{
+            state={...INITIAL_STATE}
+            console.log("state",state);
+        }
     }
     
 })
 
-export const {addFirstname,addLastname,addAge,addEmail,addPhone}=UserSlice.actions;
+export const {addFirstname,addLastname,addAge,addEmail,addPhone,resetState}=UserSlice.actions;
 export default UserSlice.reducer;
