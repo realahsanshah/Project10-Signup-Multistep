@@ -6,6 +6,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 // import Button from '@material-ui/core/Button';
 // import Typography from '@material-ui/core/Typography';
 import PersonalInfoForm from './Forms/PersonalInfoForm';
+import ContactInfoForm from './Forms/ContactInfoForm';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function getSteps() {
-  return ['Add Personal Information', 'Create an ad group', 'Create an ad'];
+  return ['Add Personal Information', 'Add Contact Information', 'Review your data'];
 }
 
 function getStepContent(stepIndex: number,setStep:any) {
@@ -31,7 +32,7 @@ function getStepContent(stepIndex: number,setStep:any) {
     case 0:
       return <PersonalInfoForm submit={setStep}/>;
     case 1:
-      return 'What is an ad group anyways?';
+      return <ContactInfoForm submit={setStep} />;
     case 2:
       return 'This is the bit I really care about!';
     default:

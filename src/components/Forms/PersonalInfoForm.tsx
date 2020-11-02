@@ -70,9 +70,6 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                 label="First Name"
                                 name="firstname"
                                 id="firstname"
-                                // onBlur={(e: any) => {
-                                //     dispatch(addFirstname(e.target.value));
-                                // }}
                             />
                             <br />
                             <ErrorMessage name='firstname' render={(msg: string) => (
@@ -88,9 +85,6 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                 label="Last Name"
                                 name="lastname"
                                 id="lastname"
-                                // onBlur={(e: any) => {
-                                //     dispatch(addLastname(e.target.value));
-                                // }}
                             />
                             <br />
                             <ErrorMessage name='lastname' render={(msg: string) => (
@@ -103,12 +97,9 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                 type='number'
                                 as={TextField}
                                 variant="outlined"
-                                label="First Name"
+                                label="Age"
                                 name="age"
                                 id="age"
-                                // onBlur={(e: any) => {
-                                //     dispatch(addAge(e.target.value));
-                                // }}
                             />
                             <br />
                             <ErrorMessage name='age' render={(msg: string) => (
@@ -126,7 +117,7 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                             Back
                                         </Button>     
                                         <Button variant="contained" color="primary" type="submit">
-                                            {'Next'}
+                                            Next
                                         </Button>
                                 </div>
                             </div>
