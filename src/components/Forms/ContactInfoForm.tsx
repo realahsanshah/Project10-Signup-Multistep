@@ -71,7 +71,7 @@ const ContactInfoForm: React.SFC<ContactInfoFormProps> = ({ submit }) => {
                         </div>
                         <div>
                             <Field
-                                type='number'
+                                type='text'
                                 as={TextField}
                                 variant="outlined"
                                 label="Phone"

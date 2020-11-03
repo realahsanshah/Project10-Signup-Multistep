@@ -52,6 +52,7 @@ export default function SignupForm() {
 
   const handleReset = () => {
     dispatch(resetState());
+    setActiveStep(0);
   };
 
   return (

@@ -29,8 +29,11 @@ const UserSlice=createSlice({
             state.phone=action.payload
         },
         resetState:(state)=>{
-            state={...INITIAL_STATE}
-            console.log("state",state);
+            state.firstname="";
+            state.lastname="";
+            state.age=18;
+            state.email="";
+            state.phone=""
         }
     }
     
