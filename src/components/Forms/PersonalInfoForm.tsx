@@ -2,10 +2,12 @@ import * as React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import * as Yup from 'yup';
-import { TextField } from '@material-ui/core';
+import { TextField,InputAdornment } from '@material-ui/core';
 import { addFirstname, addLastname, addAge } from '../../store/UserSlice';
 import Button from '@material-ui/core/Button';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import CreateOutlinedIcon from '@material-ui/icons/CreateOutlined';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 
 export interface PersonalInfoFormProps {
     submit:any
@@ -69,6 +71,13 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                 label="First Name"
                                 name="firstname"
                                 id="firstname"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                          <CreateOutlinedIcon />
+                                        </InputAdornment>
+                                      ),
+                                }}
                             />
                             <br />
                             <ErrorMessage name='firstname' render={(msg: string) => (
@@ -84,6 +93,13 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                 label="Last Name"
                                 name="lastname"
                                 id="lastname"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                          <CreateOutlinedIcon />
+                                        </InputAdornment>
+                                      ),
+                                }}
                             />
                             <br />
                             <ErrorMessage name='lastname' render={(msg: string) => (
@@ -99,6 +115,13 @@ const PersonalInfoForm: React.SFC<PersonalInfoFormProps> = ({submit}) => {
                                 label="Age"
                                 name="age"
                                 id="age"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                          <DateRangeOutlinedIcon />
+                                        </InputAdornment>
+                                      ),
+                                }}
                             />
                             <br />
                             <ErrorMessage name='age' render={(msg: string) => (

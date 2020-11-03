@@ -2,10 +2,12 @@ import * as React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useSelector, useDispatch, RootStateOrAny } from 'react-redux';
 import * as Yup from 'yup';
-import { TextField } from '@material-ui/core';
+import { TextField, InputAdornment } from '@material-ui/core';
 import { addEmail, addPhone } from '../../store/UserSlice';
 import Button from '@material-ui/core/Button';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import PhoneIcon from '@material-ui/icons/Phone';
 
 export interface ContactInfoFormProps {
     submit: any
@@ -62,6 +64,13 @@ const ContactInfoForm: React.SFC<ContactInfoFormProps> = ({ submit }) => {
                                 label="E-Mail"
                                 name="email"
                                 id="email"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                          <MailOutlineIcon />
+                                        </InputAdornment>
+                                      ),
+                                }}
                             />
                             <br />
                             <ErrorMessage name='email' render={(msg: string) => (
@@ -77,6 +86,13 @@ const ContactInfoForm: React.SFC<ContactInfoFormProps> = ({ submit }) => {
                                 label="Phone"
                                 name="phone"
                                 id="phone"
+                                InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                          <PhoneIcon />
+                                        </InputAdornment>
+                                      ),
+                                }}
                             />
                             <br />
                             <ErrorMessage name='phone' render={(msg: string) => (
